@@ -14,4 +14,5 @@ RUN apt-get install apache2-dev -y
 RUN apt-get install -y libgl1-mesa-dev
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+RUN usermod -a -G video root
 COPY . .

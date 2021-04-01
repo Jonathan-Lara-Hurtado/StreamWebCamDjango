@@ -8,8 +8,9 @@ class VideoCamera(object):
     disponible = False
 
     def __init__(self):
-        self.video = cv2.VideoCapture(0)
+        self.video = cv2.VideoCapture(-1)
         self.disponible = self.video.isOpened()
+       # print(self.disponible)
 #        (self.grabbed, self.frame) = self.video.read()
  #       threading.Thread(target=self.update, args=()).start()
 

@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http.response import StreamingHttpResponse,HttpResponse
 from stream.camara import VideoCamera
 from django.views.decorators import gzip
+import os
+
+
+
 
 def gen(camera):
     while True:
@@ -22,4 +26,6 @@ def livecam_feed(request):
 
 
 def principal(request):
-    return render(request,"stream/VistaPrincipal.html",{})
+    stream = os.popen('ls -ltrh /dev/video*')
+    output = stream.readlines()
+    return render(request,"stream/VistaPrincipal.html",{'salidad':output})
